@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_football_app/routes.dart';
+import 'package:flutter_football_app/view/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,8 +19,10 @@ class FlutterFootballApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Football App',
+      initialRoute: HomeScreen.id,
+      routes: routes,
     );
   }
 }
