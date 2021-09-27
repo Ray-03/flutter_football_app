@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_football_app/components/available_competitions_grid.dart';
 
 class HomeScreen extends StatelessWidget {
   static String id = 'home_screen';
@@ -11,18 +12,7 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('My Football App'),
         ),
-        body: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 250,
-          ),
-          itemBuilder: (BuildContext context, int index) => Card(
-            color: Colors.amber,
-            child: Center(
-              child: Text('$index'),
-            ),
-          ),
-          itemCount: 10,
-        ),
+        body: const AvailableCompetitionsGrid(),
       ),
     );
   }
