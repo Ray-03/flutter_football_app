@@ -27,9 +27,11 @@ class CompetitionDetailsScreen extends StatelessWidget {
               ],
             ),
           ),
-          body: const TabBarView(
+          body: TabBarView(
             children: [
-              StandingsSubScreen(),
+              StandingsSubScreen(
+                id: competition.id!,
+              ),
               MatchesSubScreen(),
             ],
           ),

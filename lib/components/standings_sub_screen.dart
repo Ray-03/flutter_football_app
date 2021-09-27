@@ -1,67 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_football_app/data/standings_data.dart';
 
 class StandingsSubScreen extends StatelessWidget {
-  const StandingsSubScreen({Key? key}) : super(key: key);
+  const StandingsSubScreen({Key? key, required this.id}) : super(key: key);
+  final int id;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: SingleChildScrollView(
-        child: Table(
-          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-          children: [
-            TableRow(
-              children: [
-                SizedBox(),
-                SizedBox(),
-                SizedBox(),
-                Text('Pt'),
-                Text('P'),
-                Text('W'),
-                Text('D'),
-                Text('L'),
-                Text('GF'),
-                Text('GA'),
-              ],
-            ),
-            TableRow(
-              children: [
-                Text('1.'),
-                FlutterLogo(),
-                Text('Club Name'),
-                Text('Pt'),
-                Text('P'),
-                Text('W'),
-                Text('D'),
-                Text('L'),
-                Text('GF'),
-                Text('GA'),
-              ],
-            ),
-            TableRow(
-              children: [
-                Text('2.'),
-                FlutterLogo(),
-                Text('Club Name'),
-                Text('Pt'),
-                Text('P'),
-                Text('W'),
-                Text('D'),
-                Text('L'),
-                Text('GF'),
-                Text('GA'),
-              ],
-            ),
-          ],
-          defaultColumnWidth: const IntrinsicColumnWidth(
-            flex: 0.15,
-          ),
-          border: TableBorder(
-            horizontalInside: BorderSide(width: 1),
-          ),
-          columnWidths: const {
-            2: FlexColumnWidth(),
+        child: FutureBuilder(
+          future: StandingsData.getStandingsData(id),
+          builder: (
+            BuildContext context,
+            AsyncSnapshot<List<TableRow>> snapshot,
+          ) {
+            if (snapshot.hasData) {
+              return Table(
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                children: snapshot.data ?? [],
+                defaultColumnWidth: const IntrinsicColumnWidth(
+                  flex: 0.15,
+                ),
+                border: const TableBorder(
+                  horizontalInside: BorderSide(width: 1),
+                ),
+                columnWidths: const {
+                  2: FlexColumnWidth(),
+                },
+              );
+            } else if (snapshot.hasError) {
+              print(snapshot.error);
+              throw Error();
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
           },
         ),
       ),
