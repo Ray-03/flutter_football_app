@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_football_app/data/competitions_data.dart';
 import 'package:flutter_football_app/model/competition.dart';
+import 'package:flutter_football_app/view/competition_details_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AvailableCompetitionsGrid extends StatelessWidget {
@@ -25,36 +26,36 @@ class AvailableCompetitionsGrid extends StatelessWidget {
             ),
             itemBuilder: (BuildContext context, int index) {
               Competition item = snapshot.data!.elementAt(index);
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  if (item.area!.ensignUrl != null)
-                    Expanded(
-                      child: SvgPicture.network(
-                        item.area!.ensignUrl!,
-                        semanticsLabel: 'Flag',
-                        fit: BoxFit.fitHeight,
-                        placeholderBuilder: (BuildContext context) =>
-                            const Center(
-                          child: CircularProgressIndicator(),
+              return InkWell(
+                onTap: () => Navigator.pushNamed(
+                  context,
+                  CompetitionDetailsScreen.id,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (item.area!.ensignUrl != null)
+                      Expanded(
+                        child: SvgPicture.network(
+                          item.area!.ensignUrl!,
+                          semanticsLabel: 'Flag',
+                          fit: BoxFit.fitHeight,
+                          placeholderBuilder: (BuildContext context) =>
+                              const Center(
+                            child: CircularProgressIndicator(),
+                          ),
                         ),
-                      ),
-                    )
-                  else
-                    Image.network(
-                      'https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png',
-                    ), // show image not found if ensignUrl null
-                  Text(item.name ?? '-'),
-                  Text(item.area!.name ?? '-'),
-                ],
+                      )
+                    else
+                      Image.network(
+                        'https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png',
+                      ), // show image not found if ensignUrl null
+                    Text(item.name ?? '-'),
+                    Text(item.area!.name ?? '-'),
+                  ],
+                ),
               );
             },
-            //     Card(
-            //   color: Colors.amber,
-            //   child: Center(
-            //     child: Text(snapshot.data!.elementAt(index).name ?? '-'),
-            //   ),
-            // ),
             itemCount: snapshot.data!.length,
           );
         } else if (snapshot.hasError) {
