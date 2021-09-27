@@ -12,8 +12,7 @@ class CompetitionData {
   static Future<List<Competition>> getCompetitionData() async {
     http.Response _response = await http.get(
       Uri.parse(
-        kBackendMainUrl +
-            'competitions?areas=$kCompetitionAreas&plan=$kCompetitionPlan',
+        kBackendMainUrl + '?areas=$kCompetitionAreas&plan=$kCompetitionPlan',
       ),
       headers: {
         'X-Auth-Token': kXAuthToken,
