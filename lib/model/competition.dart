@@ -1,5 +1,4 @@
 import 'area.dart';
-import 'current_season.dart';
 
 /// id : 2016
 /// area : {

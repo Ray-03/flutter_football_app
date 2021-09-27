@@ -33,52 +33,47 @@ class Table {
     _position = position;
     _team = team;
     _playedGames = playedGames;
-    _form = form;
+
     _won = won;
     _draw = draw;
     _lost = lost;
     _points = points;
     _goalsFor = goalsFor;
     _goalsAgainst = goalsAgainst;
-    _goalDifference = goalDifference;
   }
 
   Table.fromJson(dynamic json) {
     _position = json['position'];
     _team = json['team'] != null ? Team.fromJson(json['team']) : null;
     _playedGames = json['playedGames'];
-    _form = json['form'];
+
     _won = json['won'];
     _draw = json['draw'];
     _lost = json['lost'];
     _points = json['points'];
     _goalsFor = json['goalsFor'];
     _goalsAgainst = json['goalsAgainst'];
-    _goalDifference = json['goalDifference'];
   }
   int? _position;
   Team? _team;
   int? _playedGames;
-  dynamic _form;
   int? _won;
   int? _draw;
   int? _lost;
   int? _points;
   int? _goalsFor;
   int? _goalsAgainst;
-  int? _goalDifference;
 
   int? get position => _position;
   Team? get team => _team;
   int? get playedGames => _playedGames;
-  dynamic get form => _form;
+
   int? get won => _won;
   int? get draw => _draw;
   int? get lost => _lost;
   int? get points => _points;
   int? get goalsFor => _goalsFor;
   int? get goalsAgainst => _goalsAgainst;
-  int? get goalDifference => _goalDifference;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -87,14 +82,13 @@ class Table {
       map['team'] = _team?.toJson();
     }
     map['playedGames'] = _playedGames;
-    map['form'] = _form;
     map['won'] = _won;
     map['draw'] = _draw;
     map['lost'] = _lost;
     map['points'] = _points;
     map['goalsFor'] = _goalsFor;
     map['goalsAgainst'] = _goalsAgainst;
-    map['goalDifference'] = _goalDifference;
+
     return map;
   }
 }
