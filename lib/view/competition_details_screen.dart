@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_football_app/components/matches_sub_screen.dart';
+import 'package:flutter_football_app/components/standings_sub_screen.dart';
 import 'package:flutter_football_app/model/competition.dart';
 
 class CompetitionDetailsScreen extends StatelessWidget {
@@ -25,10 +27,10 @@ class CompetitionDetailsScreen extends StatelessWidget {
               ],
             ),
           ),
-          body: TabBarView(
+          body: const TabBarView(
             children: [
-              //TODO: add standings sub screen,
-              //TODO: add matches sub screen,
+              StandingsSubScreen(),
+              MatchesSubScreen(),
             ],
           ),
         ),
