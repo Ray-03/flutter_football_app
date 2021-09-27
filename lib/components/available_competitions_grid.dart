@@ -30,6 +30,7 @@ class AvailableCompetitionsGrid extends StatelessWidget {
                 onTap: () => Navigator.pushNamed(
                   context,
                   CompetitionDetailsScreen.id,
+                  arguments: item,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,

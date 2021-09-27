@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_football_app/model/competition.dart';
 
 class CompetitionDetailsScreen extends StatelessWidget {
   static String id = 'competition_details_screen';
@@ -6,11 +7,13 @@ class CompetitionDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Competition competition =
+        ModalRoute.of(context)!.settings.arguments as Competition;
     return SafeArea(
       child: DefaultTabController(
         child: Scaffold(
           appBar: AppBar(
-            title: Text('text'),
+            title: Text(competition.name ?? "-"),
             bottom: const TabBar(
               tabs: [
                 Tab(
