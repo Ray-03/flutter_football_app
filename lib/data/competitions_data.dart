@@ -5,18 +5,18 @@ import 'package:http/http.dart' as http;
 
 /// [CompetitionData] class helps get available competitions in several
 /// countries with specific areas and plan
-/// areas=[competitionAreas]
-/// plan=[competitionPlan]
+/// areas=[kCompetitionAreas]
+/// plan=[kCompetitionPlan]
 
 class CompetitionData {
   static Future<List<Competition>> getCompetitionData() async {
     http.Response _response = await http.get(
       Uri.parse(
-        backendMainUrl +
-            'competitions?areas=$competitionAreas&plan=$competitionPlan',
+        kBackendMainUrl +
+            'competitions?areas=$kCompetitionAreas&plan=$kCompetitionPlan',
       ),
       headers: {
-        'X-Auth-Token': xAuthToken,
+        'X-Auth-Token': kXAuthToken,
       },
     );
     if (_response.statusCode == 200) {
