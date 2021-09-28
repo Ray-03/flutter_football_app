@@ -36,7 +36,7 @@ class CompetitionsItemCard extends StatelessWidget {
                     ? SvgPicture.network(
                         itemData.area!.ensignUrl!,
                         semanticsLabel: 'Flag',
-                        fit: BoxFit.fitHeight,
+                        fit: BoxFit.cover,
                         placeholderBuilder: (BuildContext context) =>
                             const Center(
                           child: CircularProgressIndicator(),
@@ -44,7 +44,7 @@ class CompetitionsItemCard extends StatelessWidget {
                       )
                     : Image.network(
                         'https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png',
-                        fit: BoxFit.fitHeight,
+                        fit: BoxFit.cover,
                       ), // show image not found if ensignUrl null,
               ),
             ),
