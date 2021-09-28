@@ -21,7 +21,6 @@ class CompetitionsItemCard extends StatelessWidget {
       ),
       child: Card(
         elevation: 4,
-        shadowColor: Colors.green,
         color: Colors.lightGreen.shade100,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),

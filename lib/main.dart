@@ -27,6 +27,7 @@ class FlutterFootballApp extends StatelessWidget {
           primary: Colors.green.shade500,
           secondary: Colors.greenAccent.shade400,
         ),
+        shadowColor: Colors.green,
       ),
       initialRoute: HomeScreen.id,
       routes: routes,
