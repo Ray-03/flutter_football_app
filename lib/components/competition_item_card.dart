@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_football_app/model/competition.dart';
 import 'package:flutter_football_app/style/font.dart';
 import 'package:flutter_football_app/view/competition_details_screen.dart';
-import 'package:flutter_svg/svg.dart';
+
+import 'competition_item_card_country_flag.dart';
 
 class CompetitionsItemCard extends StatelessWidget {
   const CompetitionsItemCard({
@@ -29,25 +30,7 @@ class CompetitionsItemCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: itemData.area!.ensignUrl != null
-                    ? SvgPicture.network(
-                        itemData.area!.ensignUrl!,
-                        semanticsLabel: 'Flag',
-                        fit: BoxFit.cover,
-                        placeholderBuilder: (BuildContext context) =>
-                            const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      )
-                    : Image.network(
-                        'https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png',
-                        fit: BoxFit.cover,
-                      ), // show image not found if ensignUrl null,
-              ),
-            ),
+            CompetitionItemCardCountryFlag(itemData: itemData),
             Text(
               itemData.name ?? '-',
               textAlign: TextAlign.center,
