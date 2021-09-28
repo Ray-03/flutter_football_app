@@ -8,7 +8,7 @@ void main() {
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
     ],
   );
   runApp(const FlutterFootballApp());
