@@ -23,8 +23,9 @@ class FlutterFootballApp extends StatelessWidget {
       title: 'Football App',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.lightGreen.shade300,
-        appBarTheme: AppBarTheme(
-          color: Colors.green.shade500,
+        colorScheme: ColorScheme.light(
+          primary: Colors.green.shade500,
+          secondary: Colors.greenAccent.shade400,
         ),
       ),
       initialRoute: HomeScreen.id,
