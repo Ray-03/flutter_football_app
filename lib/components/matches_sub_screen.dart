@@ -28,12 +28,11 @@ class MatchesSubScreen extends StatelessWidget {
                     children: [
                       Text(_dataKey),
                       GridView.builder(
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 1,
-                          mainAxisSpacing: 30,
-                          crossAxisSpacing: 30,
-                        ),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 1,
+                            mainAxisSpacing: 30,
+                            crossAxisSpacing: 30,
+                            mainAxisExtent: MediaQuery.of(context).size.height),
                         itemCount: _dataValue.length,
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
