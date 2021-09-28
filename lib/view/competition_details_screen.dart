@@ -11,6 +11,14 @@ class CompetitionDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final Competition competition =
         ModalRoute.of(context)!.settings.arguments as Competition;
+    const List<Tab> _competitionTabs = [
+      Tab(
+        text: 'STANDINGS',
+      ),
+      Tab(
+        text: 'MATCHES',
+      )
+    ];
     return SafeArea(
       child: DefaultTabController(
         child: Scaffold(
@@ -23,16 +31,7 @@ class CompetitionDetailsScreen extends StatelessWidget {
                   pinned: true,
                   title: Text(competition.name ?? "-"),
                   bottom: const TabBar(
-                    indicatorColor: Colors.green,
-                    tabs: [
-                      Tab(
-                        text: 'STANDINGS',
-                      ),
-                      Tab(
-                        text: 'MATCHES',
-                      )
-                    ],
-                  ),
+                      indicatorColor: Colors.green, tabs: _competitionTabs),
                 )
               ];
             },
@@ -48,7 +47,7 @@ class CompetitionDetailsScreen extends StatelessWidget {
             ),
           ),
         ),
-        length: 2,
+        length: _competitionTabs.length,
       ),
     );
   }
