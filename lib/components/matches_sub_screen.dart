@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_football_app/data/matches_data.dart';
 import 'package:flutter_football_app/model/matches.dart';
+import 'package:flutter_football_app/style/font.dart';
 
 class MatchesSubScreen extends StatelessWidget {
   const MatchesSubScreen({Key? key, required this.id}) : super(key: key);
@@ -26,13 +27,24 @@ class MatchesSubScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text(_dataKey),
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: Divider(),
+                          ),
+                          Text(_dataKey),
+                          const Expanded(
+                            child: Divider(),
+                          ),
+                        ],
+                      ),
                       GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 1,
-                            mainAxisSpacing: 30,
-                            crossAxisSpacing: 30,
-                            mainAxisExtent: MediaQuery.of(context).size.height),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 30,
+                          crossAxisSpacing: 30,
+                        ),
                         itemCount: _dataValue.length,
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
@@ -47,6 +59,8 @@ class MatchesSubScreen extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
                                   Row(
@@ -55,12 +69,14 @@ class MatchesSubScreen extends StatelessWidget {
                                         child: Text(
                                           'HOME',
                                           textAlign: TextAlign.center,
+                                          style: kTeamPositionFont,
                                         ),
                                       ),
                                       Expanded(
                                         child: Text(
                                           'AWAY',
                                           textAlign: TextAlign.center,
+                                          style: kTeamPositionFont,
                                         ),
                                       ),
                                     ],
@@ -68,38 +84,57 @@ class MatchesSubScreen extends StatelessWidget {
                                   Row(
                                     children: [
                                       Expanded(
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              _matchValue.homeTeam!.name ?? '-',
-                                              textAlign: TextAlign.center,
-                                            ),
-                                            Text(
-                                              '${_matchValue.score!.fullTime!.homeTeam ?? '-'}',
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ],
+                                        child: Text(
+                                          _matchValue.homeTeam!.name ?? '-',
+                                          textAlign: TextAlign.center,
+                                          style: kTeamNameFont,
                                         ),
                                       ),
-                                      const Text(':'),
                                       Expanded(
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              _matchValue.awayTeam!.name ?? '-',
-                                              textAlign: TextAlign.center,
-                                            ),
-                                            Text(
-                                              '${_matchValue.score!.fullTime!.awayTeam ?? '-'}',
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ],
+                                        child: Text(
+                                          _matchValue.awayTeam!.name ?? '-',
+                                          textAlign: TextAlign.center,
+                                          style: kTeamNameFont,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          color: Colors.black87,
+                                          child: Text(
+                                            '${_matchValue.score!.fullTime!.homeTeam ?? '-'}',
+                                            textAlign: TextAlign.center,
+                                            style: kScoreCounterFont,
+                                          ),
+                                          padding: const EdgeInsets.all(20),
+                                        ),
+                                      ),
+                                      Text(
+                                        ' : ',
+                                        style: kScoreCounterFont.copyWith(
+                                          color: Colors.black,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      Expanded(
+                                        child: Container(
+                                          color: Colors.black87,
+                                          child: Text(
+                                            '${_matchValue.score!.fullTime!.awayTeam ?? '-'}',
+                                            textAlign: TextAlign.center,
+                                            style: kScoreCounterFont,
+                                          ),
+                                          padding: const EdgeInsets.all(20),
                                         ),
                                       ),
                                     ],
                                   ),
                                   Text(
                                     'Match status: ${_matchValue.status ?? '-'}',
+                                    textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
