@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_football_app/model/matches.dart';
+
 import 'competition_match_card.dart';
 import 'date_divider.dart';
 

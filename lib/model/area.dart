@@ -19,12 +19,15 @@ class Area {
     _name = json['name'];
     _ensignUrl = json['ensignUrl'];
   }
+
   int? _id;
   String? _name;
   String? _ensignUrl;
 
   int? get id => _id;
+
   String? get name => _name;
+
   String? get ensignUrl => _ensignUrl;
 
   Map<String, dynamic> toJson() {

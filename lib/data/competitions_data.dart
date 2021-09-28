@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter_football_app/const.dart';
 import 'package:flutter_football_app/model/competition.dart';
 import 'package:http/http.dart' as http;

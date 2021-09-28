@@ -5,6 +5,7 @@ import 'package:flutter_football_app/model/competition.dart';
 
 class CompetitionDetailsScreen extends StatelessWidget {
   static String id = 'competition_details_screen';
+
   const CompetitionDetailsScreen({Key? key}) : super(key: key);
 
   @override

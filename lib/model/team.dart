@@ -18,12 +18,15 @@ class Team {
     _name = json['name'];
     _crestUrl = json['crestUrl'];
   }
+
   int? _id;
   String? _name;
   String? _crestUrl;
 
   int? get id => _id;
+
   String? get name => _name;
+
   String? get crestUrl => _crestUrl;
 
   Map<String, dynamic> toJson() {

@@ -54,6 +54,7 @@ class Table {
     _goalsFor = json['goalsFor'];
     _goalsAgainst = json['goalsAgainst'];
   }
+
   int? _position;
   Team? _team;
   int? _playedGames;
@@ -65,14 +66,21 @@ class Table {
   int? _goalsAgainst;
 
   int? get position => _position;
+
   Team? get team => _team;
+
   int? get playedGames => _playedGames;
 
   int? get won => _won;
+
   int? get draw => _draw;
+
   int? get lost => _lost;
+
   int? get points => _points;
+
   int? get goalsFor => _goalsFor;
+
   int? get goalsAgainst => _goalsAgainst;
 
   Map<String, dynamic> toJson() {

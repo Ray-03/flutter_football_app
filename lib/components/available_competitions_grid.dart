@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_football_app/data/competitions_data.dart';
 import 'package:flutter_football_app/model/competition.dart';
+
 import 'competition_item_card.dart';
 
 class AvailableCompetitionsGrid extends StatelessWidget {

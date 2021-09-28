@@ -11,6 +11,7 @@ class Score {
     _fullTime =
         json['fullTime'] != null ? FullTime.fromJson(json['fullTime']) : null;
   }
+
   FullTime? _fullTime;
 
   FullTime? get fullTime => _fullTime;

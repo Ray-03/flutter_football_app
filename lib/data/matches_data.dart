@@ -1,9 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter_football_app/const.dart';
 import 'package:flutter_football_app/model/matches.dart';
 import 'package:http/http.dart' as http;
-
-import 'package:flutter_football_app/const.dart';
 
 class MatchesData {
   static Future<Map<String, List<Matches>>> getMatchesData(int id) async {

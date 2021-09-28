@@ -63,6 +63,7 @@ class Matches {
         ? HomeAwayTeam.fromJson(json['awayTeam'])
         : null;
   }
+
   int? _id;
   DateTime? _utcDate;
   String? _status;
@@ -71,10 +72,15 @@ class Matches {
   HomeAwayTeam? _awayTeam;
 
   int? get id => _id;
+
   DateTime? get utcDate => _utcDate;
+
   String? get status => _status;
+
   Score? get score => _score;
+
   HomeAwayTeam? get homeTeam => _homeTeam;
+
   HomeAwayTeam? get awayTeam => _awayTeam;
 
   Map<String, dynamic> toJson() {

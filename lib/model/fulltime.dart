@@ -16,10 +16,12 @@ class FullTime {
     _homeTeam = json['homeTeam'];
     _awayTeam = json['awayTeam'];
   }
+
   int? _homeTeam;
   int? _awayTeam;
 
   int? get homeTeam => _homeTeam;
+
   int? get awayTeam => _awayTeam;
 
   Map<String, dynamic> toJson() {

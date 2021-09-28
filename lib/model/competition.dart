@@ -37,12 +37,15 @@ class Competition {
     _area = json['area'] != null ? Area.fromJson(json['area']) : null;
     _name = json['name'];
   }
+
   int? _id;
   Area? _area;
   String? _name;
 
   int? get id => _id;
+
   Area? get area => _area;
+
   String? get name => _name;
 
   Map<String, dynamic> toJson() {

@@ -14,10 +14,12 @@ class HomeAwayTeam {
     _id = json['id'];
     _name = json['name'];
   }
+
   int? _id;
   String? _name;
 
   int? get id => _id;
+
   String? get name => _name;
 
   Map<String, dynamic> toJson() {
