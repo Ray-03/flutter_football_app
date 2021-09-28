@@ -44,6 +44,7 @@ class CompetitionsItemCard extends StatelessWidget {
                       )
                     : Image.network(
                         'https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png',
+                        fit: BoxFit.fitHeight,
                       ), // show image not found if ensignUrl null,
               ),
             ),

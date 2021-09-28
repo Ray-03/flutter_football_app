@@ -44,19 +44,25 @@ class StandingsData {
           TableRow(
             children: [
               Text(tableData.length.toString()),
-              if (element.team!.crestUrl != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: SvgPicture.network(
-                    element.team!.crestUrl!,
-                    fit: BoxFit.fitHeight,
-                    width: 30,
-                  ),
-                )
-              else
-                Image.network(
-                  'https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png',
-                ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: element.team!.crestUrl != null
+                    ? SvgPicture.network(
+                        element.team!.crestUrl!,
+                        fit: BoxFit.fitHeight,
+                        width: 30,
+                        height: 30,
+                        semanticsLabel: 'team_logo',
+                        placeholderBuilder: (BuildContext context) =>
+                            const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      )
+                    : Image.network(
+                        'https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png',
+                        width: 30,
+                      ),
+              ),
               Text(element.team!.name ?? '-'),
               Text(element.points!.toString()),
               Text(element.playedGames!.toString()),
