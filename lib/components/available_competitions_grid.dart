@@ -11,16 +11,16 @@ class AvailableCompetitionsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: CompetitionData.getCompetitionData(),
-      builder: (
-        BuildContext context,
-        AsyncSnapshot<List<Competition>> snapshot,
-      ) {
-        if (snapshot.hasData) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: GridView.builder(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: FutureBuilder(
+        future: CompetitionData.getCompetitionData(),
+        builder: (
+          BuildContext context,
+          AsyncSnapshot<List<Competition>> snapshot,
+        ) {
+          if (snapshot.hasData) {
+            return GridView.builder(
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
                 crossAxisSpacing: 30,
@@ -35,10 +35,6 @@ class AvailableCompetitionsGrid extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  // decoration: BoxDecoration(
-                  //   borderRadius: BorderRadius.circular(10),
-                  //   color: Colors.white70,
-                  // ),
                   child: InkWell(
                     onTap: () => Navigator.pushNamed(
                       context,
@@ -74,16 +70,16 @@ class AvailableCompetitionsGrid extends StatelessWidget {
                 );
               },
               itemCount: snapshot.data!.length,
-            ),
-          );
-        } else if (snapshot.hasError) {
-          throw Error();
-        } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-      },
+            );
+          } else if (snapshot.hasError) {
+            throw Error();
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
     );
   }
 }

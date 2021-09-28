@@ -21,6 +21,12 @@ class FlutterFootballApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Football App',
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.lightGreen.shade300,
+        appBarTheme: AppBarTheme(
+          color: Colors.green.shade500,
+        ),
+      ),
       initialRoute: HomeScreen.id,
       routes: routes,
     );
