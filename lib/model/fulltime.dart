@@ -5,8 +5,8 @@
 
 class FullTime {
   FullTime({
-    int? homeTeam,
-    int? awayTeam,
+    int homeTeam = 0,
+    int awayTeam = 0,
   }) {
     _homeTeam = homeTeam;
     _awayTeam = awayTeam;

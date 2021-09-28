@@ -40,29 +40,76 @@ class MatchesSubScreen extends StatelessWidget {
                         shrinkWrap: true,
                         itemBuilder: (BuildContext context, int index) {
                           Matches _matchValue = _dataValue.elementAt(index);
-                          return Row(
+                          // return Row(
+                          //   children: [
+                          //     Column(
+                          //       mainAxisSize: MainAxisSize.min,
+                          //       children: [
+                          //         Text(_matchValue.homeTeam!.name ?? '-'),
+                          //         Text(_matchValue.awayTeam!.name ?? '-'),
+                          //       ],
+                          //     ),
+                          //     Text(_matchValue.status ?? '-'),
+                          //     Column(
+                          //       mainAxisSize: MainAxisSize.min,
+                          //       children: [
+                          //         Text(
+                          //           _matchValue.score!.fullTime!.homeTeam!
+                          //               .toString(),
+                          //         ),
+                          //         Text(
+                          //           _matchValue.score!.fullTime!.awayTeam!
+                          //               .toString(),
+                          //         ),
+                          //       ],
+                          //     )
+                          //   ],
+                          // );
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(_matchValue.homeTeam!.name ?? '-'),
-                                  Text(_matchValue.awayTeam!.name ?? '-'),
+                              Row(
+                                children: const [
+                                  Expanded(
+                                    child: Text(
+                                      'HOME',
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      'AWAY',
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
                                 ],
                               ),
-                              Text(_matchValue.status ?? '-'),
-                              Column(
-                                mainAxisSize: MainAxisSize.min,
+                              Row(
                                 children: [
-                                  Text(
-                                    _matchValue.score!.fullTime!.homeTeam!
-                                        .toString(),
+                                  Expanded(
+                                    child:
+                                        Text(_matchValue.homeTeam!.name ?? '-'),
                                   ),
-                                  Text(
-                                    _matchValue.score!.fullTime!.awayTeam!
-                                        .toString(),
+                                  Expanded(
+                                    child: Text(
+                                      '${_matchValue.score!.fullTime!.homeTeam ?? '-'}',
+                                    ),
+                                  ),
+                                  const Text(':'),
+                                  Expanded(
+                                    child: Text(
+                                      '${_matchValue.score!.fullTime!.awayTeam ?? '-'}',
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child:
+                                        Text(_matchValue.awayTeam!.name ?? '-'),
                                   ),
                                 ],
-                              )
+                              ),
+                              Text(
+                                'Match status: ${_matchValue.status ?? '-'}',
+                              ),
                             ],
                           );
                         },
