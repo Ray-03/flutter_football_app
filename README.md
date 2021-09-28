@@ -4,6 +4,18 @@ App to show the football league standings and matches from several countries.
 
 ## Getting Started
 
+### Home Screen
+![Screenshot_2021-09-29-01-01-56-376_com ray03 flutterfootball flutter_football_app](https://user-images.githubusercontent.com/59655808/135141488-e65c1d28-230a-4ec6-935f-185504c766d6.jpg)
+Show available competition
+
+### Standings
+![Screenshot_2021-09-29-01-02-11-997_com ray03 flutterfootball flutter_football_app](https://user-images.githubusercontent.com/59655808/135141540-fd6f1748-899d-4e22-a243-7338dfa6b9ce.jpg)
+Show standings of competition
+
+### Matches
+![Screenshot_2021-09-29-01-02-34-100_com ray03 flutterfootball flutter_football_app](https://user-images.githubusercontent.com/59655808/135141532-017b3141-f67e-426b-a6e1-762176c74f23.jpg)
+Show matches of competition
+
 ### Installing
 
 - Download APK from: https://drive.google.com/file/d/18I-xdnqRbT7rSSiIrssbRpKCVALrr8vE/view?usp=sharing
