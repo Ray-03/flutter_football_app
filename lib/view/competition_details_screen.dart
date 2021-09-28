@@ -17,6 +17,7 @@ class CompetitionDetailsScreen extends StatelessWidget {
           appBar: AppBar(
             title: Text(competition.name ?? "-"),
             bottom: const TabBar(
+              indicatorColor: Colors.green,
               tabs: [
                 Tab(
                   text: 'STANDINGS',
