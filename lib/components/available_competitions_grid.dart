@@ -32,6 +32,7 @@ class AvailableCompetitionsGrid extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 20),
                   elevation: 4,
                   shadowColor: Colors.green,
+                  color: Colors.lightGreen.shade100,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
