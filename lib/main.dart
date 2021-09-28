@@ -5,6 +5,7 @@ import 'package:flutter_football_app/view/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  // Screen in landscape orientation
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.landscapeLeft,

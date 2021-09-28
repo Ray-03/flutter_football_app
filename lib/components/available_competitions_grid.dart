@@ -4,6 +4,8 @@ import 'package:flutter_football_app/model/competition.dart';
 
 import 'competition_item_card.dart';
 
+/// [AvailableCompetitionsGrid] contains competition detail
+
 class AvailableCompetitionsGrid extends StatelessWidget {
   const AvailableCompetitionsGrid({
     Key? key,
@@ -20,6 +22,7 @@ class AvailableCompetitionsGrid extends StatelessWidget {
           AsyncSnapshot<List<Competition>> snapshot,
         ) {
           if (snapshot.hasData) {
+            //finish state
             return GridView.builder(
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
@@ -33,8 +36,10 @@ class AvailableCompetitionsGrid extends StatelessWidget {
               itemCount: snapshot.data!.length,
             );
           } else if (snapshot.hasError) {
+            //error state
             throw Error();
           } else {
+            //empty state
             return const Center(
               child: CircularProgressIndicator(),
             );
