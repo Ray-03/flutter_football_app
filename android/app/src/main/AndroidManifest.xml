@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ray03.flutterfootball.flutter_football_app">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="flutter_football_app"
         android:icon="@mipmap/ic_launcher">
