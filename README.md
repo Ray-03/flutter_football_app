@@ -39,8 +39,9 @@ Tested on Android
 ### Build APK
 
 ```
-1. Enter cd [project]
-2. Run flutter build apk
+1. Run flutter pub get
+2. Enter cd [project]
+3. Run flutter build apk
 ```
 
 ### Minimal Requirement
