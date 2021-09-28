@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_offline/flutter_offline.dart';
 
+///[OfflineCheck] to show [widgetChild] if connection found
+///else show error message if connection not found
+
 class OfflineCheck extends StatelessWidget {
   const OfflineCheck({
     Key? key,

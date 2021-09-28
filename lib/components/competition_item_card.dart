@@ -30,7 +30,9 @@ class CompetitionsItemCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            //flag
             CompetitionItemCardCountryFlag(itemData: itemData),
+            //competition name
             Text(
               itemData.name ?? '-',
               textAlign: TextAlign.center,
@@ -40,6 +42,7 @@ class CompetitionsItemCard extends StatelessWidget {
               endIndent: 10,
               indent: 10,
             ),
+            //country
             Text(
               itemData.area!.name ?? '-',
               textAlign: TextAlign.center,

@@ -18,6 +18,7 @@ class StandingsData {
     );
     if (_response.statusCode == 200) {
       final json = jsonDecode(_response.body);
+      //add header table
       List<TableRow> tableData = [
         const TableRow(
           children: [
@@ -41,6 +42,7 @@ class StandingsData {
         ),
       );
       for (var element in _data) {
+        //add each data from API to table in TableRow form
         tableData.add(
           TableRow(
             children: [

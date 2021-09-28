@@ -4,7 +4,7 @@ import 'package:flutter_football_app/model/competition.dart';
 
 import 'competition_item_card.dart';
 
-/// [AvailableCompetitionsGrid] contains competition detail
+/// [AvailableCompetitionsGrid] contains competition item cards
 
 class AvailableCompetitionsGrid extends StatelessWidget {
   const AvailableCompetitionsGrid({

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_football_app/data/standings_data.dart';
 import 'package:flutter_football_app/service/connectivity_check.dart';
 
+///[StandingsSubScreen] as a competition report view in table form
+
 class StandingsSubScreen extends StatelessWidget {
   const StandingsSubScreen({Key? key, required this.id}) : super(key: key);
   final int id;
@@ -19,6 +21,7 @@ class StandingsSubScreen extends StatelessWidget {
               AsyncSnapshot<List<TableRow>> snapshot,
             ) {
               if (snapshot.hasData) {
+                //finish state
                 return Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: snapshot.data ?? [],
@@ -33,10 +36,11 @@ class StandingsSubScreen extends StatelessWidget {
                   },
                 );
               } else if (snapshot.hasError) {
-                print('-==================');
+                //error state
                 print(snapshot.error);
                 throw Error();
               } else {
+                //empty state
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
