@@ -37,7 +37,7 @@ import 'home_away_team.dart';
 class Matches {
   Matches({
     int? id,
-    String? utcDate,
+    DateTime? utcDate,
     String? status,
     Score? score,
     HomeAwayTeam? homeTeam,
@@ -53,7 +53,7 @@ class Matches {
 
   Matches.fromJson(dynamic json) {
     _id = json['id'];
-    _utcDate = json['utcDate'];
+    _utcDate = DateTime.parse(json['utcDate']).toLocal();
     _status = json['status'];
     _score = json['score'] != null ? Score.fromJson(json['score']) : null;
     _homeTeam = json['homeTeam'] != null
@@ -64,14 +64,14 @@ class Matches {
         : null;
   }
   int? _id;
-  String? _utcDate;
+  DateTime? _utcDate;
   String? _status;
   Score? _score;
   HomeAwayTeam? _homeTeam;
   HomeAwayTeam? _awayTeam;
 
   int? get id => _id;
-  String? get utcDate => _utcDate;
+  DateTime? get utcDate => _utcDate;
   String? get status => _status;
   Score? get score => _score;
   HomeAwayTeam? get homeTeam => _homeTeam;
