@@ -1,39 +1,85 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_football_app/data/matches_data.dart';
+import 'package:flutter_football_app/model/matches.dart';
 
 class MatchesSubScreen extends StatelessWidget {
-  const MatchesSubScreen({Key? key}) : super(key: key);
+  const MatchesSubScreen({Key? key, required this.id}) : super(key: key);
+  final int id;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
-      child: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const Text('date YYYY-MM-DD'),
-                GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 400,
-                    childAspectRatio: 16 / 9,
-                    mainAxisSpacing: 30,
-                    crossAxisSpacing: 30,
+      child: FutureBuilder(
+        future: MatchesData.getMatchesData(id),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            Map<String, List<Matches>> _data = snapshot.data;
+            return ListView.builder(
+              itemCount: _data.length,
+              itemBuilder: (BuildContext context, int index) {
+                String _dataKey = _data.keys.elementAt(index);
+                List<Matches> _dataValue = _data[_dataKey]!;
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(_dataKey),
+                      GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 1,
+                          mainAxisSpacing: 30,
+                          crossAxisSpacing: 30,
+                          childAspectRatio: 4 / 1,
+                        ),
+                        itemCount: _dataValue.length,
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemBuilder: (BuildContext context, int index) {
+                          Matches _matchValue = _dataValue.elementAt(index);
+                          return Row(
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(_matchValue.homeTeam!.name ?? '-'),
+                                  Text(_matchValue.awayTeam!.name ?? '-'),
+                                ],
+                              ),
+                              Text(_matchValue.status ?? '-'),
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    _matchValue.score!.fullTime!.homeTeam!
+                                        .toString(),
+                                  ),
+                                  Text(
+                                    _matchValue.score!.fullTime!.awayTeam!
+                                        .toString(),
+                                  ),
+                                ],
+                              )
+                            ],
+                          );
+                        },
+                      ),
+                    ],
                   ),
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      color: Colors.amber,
-                    );
-                  },
-                  itemCount: 3,
-                ),
-              ],
-            ),
-          );
+                );
+              },
+            );
+          } else if (snapshot.hasError) {
+            //TODO: Show error
+            throw Error();
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
         },
       ),
     );

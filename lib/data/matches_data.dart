@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_football_app/const.dart';
 
 class MatchesData {
-  static Future getMatchesData(int id) async {
+  static Future<Map<String, List<Matches>>> getMatchesData(int id) async {
     DateTime dateNow = DateTime.now().toUtc();
     String dateFrom = dateNow
         .subtract(
@@ -51,6 +51,9 @@ class MatchesData {
         },
       );
       return _groupedData;
+    } else {
+      //TODO: Show error
+      throw Error();
     }
   }
 }

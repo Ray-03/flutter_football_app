@@ -32,7 +32,9 @@ class CompetitionDetailsScreen extends StatelessWidget {
               StandingsSubScreen(
                 id: competition.id!,
               ),
-              MatchesSubScreen(),
+              MatchesSubScreen(
+                id: competition.id!,
+              ),
             ],
           ),
         ),
