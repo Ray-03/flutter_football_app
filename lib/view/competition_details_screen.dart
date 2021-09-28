@@ -14,29 +14,52 @@ class CompetitionDetailsScreen extends StatelessWidget {
     return SafeArea(
       child: DefaultTabController(
         child: Scaffold(
-          appBar: AppBar(
-            title: Text(competition.name ?? "-"),
-            bottom: const TabBar(
-              indicatorColor: Colors.green,
-              tabs: [
-                Tab(
-                  text: 'STANDINGS',
-                ),
-                Tab(
-                  text: 'MATCHES',
+          // appBar: AppBar(
+          //   title: Text(competition.name ?? "-"),
+          //   bottom: const TabBar(
+          //     indicatorColor: Colors.green,
+          //     tabs: [
+          //       Tab(
+          //         text: 'STANDINGS',
+          //       ),
+          //       Tab(
+          //         text: 'MATCHES',
+          //       )
+          //     ],
+          //   ),
+          // ),
+          body: NestedScrollView(
+            headerSliverBuilder: (BuildContext context, bool _) {
+              return <SliverAppBar>[
+                SliverAppBar(
+                  snap: true,
+                  floating: true,
+                  pinned: true,
+                  title: Text(competition.name ?? "-"),
+                  bottom: const TabBar(
+                    indicatorColor: Colors.green,
+                    tabs: [
+                      Tab(
+                        text: 'STANDINGS',
+                      ),
+                      Tab(
+                        text: 'MATCHES',
+                      )
+                    ],
+                  ),
                 )
+              ];
+            },
+            body: TabBarView(
+              children: [
+                StandingsSubScreen(
+                  id: competition.id!,
+                ),
+                MatchesSubScreen(
+                  id: competition.id!,
+                ),
               ],
             ),
-          ),
-          body: TabBarView(
-            children: [
-              StandingsSubScreen(
-                id: competition.id!,
-              ),
-              MatchesSubScreen(
-                id: competition.id!,
-              ),
-            ],
           ),
         ),
         length: 2,
