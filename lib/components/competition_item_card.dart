@@ -13,19 +13,18 @@ class CompetitionsItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.only(top: 20),
-      elevation: 4,
-      shadowColor: Colors.green,
-      color: Colors.lightGreen.shade100,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+    return InkWell(
+      onTap: () => Navigator.pushNamed(
+        context,
+        CompetitionDetailsScreen.id,
+        arguments: itemData,
       ),
-      child: InkWell(
-        onTap: () => Navigator.pushNamed(
-          context,
-          CompetitionDetailsScreen.id,
-          arguments: itemData,
+      child: Card(
+        elevation: 4,
+        shadowColor: Colors.green,
+        color: Colors.lightGreen.shade100,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -48,8 +47,24 @@ class CompetitionsItemCard extends StatelessWidget {
                       ), // show image not found if ensignUrl null,
               ),
             ),
-            Text(itemData.name ?? '-'),
-            Text(itemData.area!.name ?? '-'),
+            Text(
+              itemData.name ?? '-',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            Divider(
+              endIndent: 10,
+              indent: 10,
+            ),
+            Text(
+              itemData.area!.name ?? '-',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
           ],
         ),
       ),
