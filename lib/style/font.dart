@@ -6,11 +6,15 @@ const TextStyle kScoreCounterFont = TextStyle(
   color: Colors.white,
 );
 
-const TextStyle kTeamNameFont = TextStyle(
-  fontSize: 20,
-);
-
 const TextStyle kTeamPositionFont = TextStyle(
   fontSize: 30,
   fontWeight: FontWeight.bold,
+);
+
+const TextStyle kHeader1Font = TextStyle(
+  fontSize: 20,
+);
+
+const TextStyle kHeader2Font = TextStyle(
+  fontSize: 16,
 );

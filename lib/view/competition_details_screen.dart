@@ -14,20 +14,6 @@ class CompetitionDetailsScreen extends StatelessWidget {
     return SafeArea(
       child: DefaultTabController(
         child: Scaffold(
-          // appBar: AppBar(
-          //   title: Text(competition.name ?? "-"),
-          //   bottom: const TabBar(
-          //     indicatorColor: Colors.green,
-          //     tabs: [
-          //       Tab(
-          //         text: 'STANDINGS',
-          //       ),
-          //       Tab(
-          //         text: 'MATCHES',
-          //       )
-          //     ],
-          //   ),
-          // ),
           body: NestedScrollView(
             headerSliverBuilder: (BuildContext context, bool _) {
               return <SliverAppBar>[

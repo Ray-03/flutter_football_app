@@ -87,14 +87,14 @@ class MatchesSubScreen extends StatelessWidget {
                                         child: Text(
                                           _matchValue.homeTeam!.name ?? '-',
                                           textAlign: TextAlign.center,
-                                          style: kTeamNameFont,
+                                          style: kHeader1Font,
                                         ),
                                       ),
                                       Expanded(
                                         child: Text(
                                           _matchValue.awayTeam!.name ?? '-',
                                           textAlign: TextAlign.center,
-                                          style: kTeamNameFont,
+                                          style: kHeader1Font,
                                         ),
                                       ),
                                     ],

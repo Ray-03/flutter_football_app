@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_football_app/model/competition.dart';
+import 'package:flutter_football_app/style/font.dart';
 import 'package:flutter_football_app/view/competition_details_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -50,20 +51,16 @@ class CompetitionsItemCard extends StatelessWidget {
             Text(
               itemData.name ?? '-',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: kHeader1Font,
             ),
-            Divider(
+            const Divider(
               endIndent: 10,
               indent: 10,
             ),
             Text(
               itemData.area!.name ?? '-',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-              ),
+              style: kHeader2Font,
             ),
           ],
         ),
